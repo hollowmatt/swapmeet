@@ -5,17 +5,42 @@
   </head>
 
   <body>
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-			<div class="flipper">
-			<div class="front">
-				<%= image_tag 'dwflip.jpg', width: 320, height: 427, alt: 'a face that is unnervingly happy'%>
+
+  	<div class="row">        <!-- create the row -->
+  		<!-- First Column -->
+  		<div class="col s6">
+		    <div class="flip-container card-image waves-effect waves-block waves-light" ontouchstart="this.classList.toggle('hover');">
+					<div class="flipper">
+						<div class="front">
+							<%= image_tag 'dwflip.jpg', width: 320, height: 427, alt: 'a face that is unnervingly happy'%>
+						</div>
+						<div class="back" style="background:#f8f8f8;">
+							<div class="back-logo"></div>
+							<div class="back-title">Beer</div>
+							<p>Buy this beer.  Honey &amp; Hops.  German style kolsch, 5% ABV.</p>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="back" style="background:#f8f8f8;">
-				<div class="back-logo"></div>
-				<div class="back-title">Beer</div>
-				<p>Buy this beer.  Honey &amp; Hops.  German style kolsch, 5% ABV.</p>
-			</div>
-		</div>
-		</div>
+			<!-- Second Column -->
+			<div class="col s6">
+				<div class="card">
+			    <div class="card-image waves-effect waves-block waves-light">
+			      <%= image_tag 'dwflip.jpg', width: 320, height: 427, class: "activator" %>
+			    </div>
+			    <div class="card-content">
+			      <span class="card-title activator grey-text text-darken-4">
+			      	Beer<i class="material-icons right">more_vert</i>
+			      </span>
+			      <p><a href="#">This is a link</a></p>
+			    </div>
+			    <div class="card-reveal">
+			      <span class="card-title grey-text text-darken-4">
+			      	Beer<i class="material-icons right">close</i>
+			      </span>
+			      <p>Buy this beer.  Honey &amp; Hops.  German style kolsch, 5% ABV.</p>
+			    </div>
+  			</div>
+  		</div>
   </body>
 </html>
