@@ -1,28 +1,14 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a 'swap meet' app that allows you to sell, trade or give away stuff you don't want (or to buy other people's stuff)
 
-Things you may want to cover:
+Tech:
+* Ruby version 2.5.0
 
-* Ruby version
+* Rails 5
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* MySQL
 
 * ...
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
