@@ -9,6 +9,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'react-rails'
+gem 'carrierwave'
+gem 'mini_magick'
 # gem 'bootstrap-sass'
 
 group :development, :test do
