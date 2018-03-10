@@ -22,6 +22,7 @@ class TrinketsController < ApplicationController
 	end
 
 	def show
+		@trinket = Trinket.find(params[:id])
 	end
 
 	def destroy

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @trinket.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @trinket.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @trinket.photo_path.thumb.url %>
+</p>
+
+<%= link_to 'Edit', edit_trinket_path(@trinket) %> |
+<%= link_to 'Back', trinkets_path %>
