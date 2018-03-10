@@ -4,7 +4,7 @@ class TrinketsController < ApplicationController
 	end
 
 	def new
-		@trinket = new Trinket
+		@trinket = Trinket.new
 	end
 
 	def create
