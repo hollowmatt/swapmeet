@@ -1,1 +1,37 @@
-<p>Form
+<%= form_for trinket, local: true do |form| %>
+  <% if trinket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(trinket.errors.count, "error") %> prohibited this trinket from being saved:</h2>
+
+      <ul>
+      <% trinket.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :trinket_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :trinket_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :photo_path %>
+    <%= form.file_field :photo_path, id: :trinket_photo_path %>
+    <% if form.object.photo_path? %>
+      <%= image_tag form.object.photo_path.thumb.url %>
+      <%= form.label :remove_image %>
+      <%= form.check_box :remove_image %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -8,6 +8,17 @@ class TrinketsController < ApplicationController
 	end
 
 	def create
+		@trinket = Trinket.new(trinket_params)
+
+    respond_to do |format|
+      if @trinket.save
+        format.html { redirect_to @trinket, notice: 'trinket was successfully created.' }
+        format.json { render :show, status: :created, location: @trinket }
+      else
+        format.html { render :new }
+        format.json { render json: @trinket.errors, status: :unprocessable_entity }
+      end
+    end
 	end
 
 	def show
