@@ -7,6 +7,10 @@ class TrinketsController < ApplicationController
 		@trinket = Trinket.new
 	end
 
+	def edit
+		@trinket = Trinket.find(params[:id])
+	end
+
 	def create
 		@trinket = Trinket.new(trinket_params)
 
@@ -20,6 +24,19 @@ class TrinketsController < ApplicationController
       end
     end
 	end
+
+	def update
+		@trinket = Trinket.find(params[:id])
+    respond_to do |format|
+      if @trinket.update(trinket_params)
+        format.html { redirect_to @trinket, notice: 'trinket was successfully updated.' }
+        format.json { render :show, status: :ok, location: @trinket }
+      else
+        format.html { render :edit }
+        format.json { render json: @trinket.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
 	def show
 		@trinket = Trinket.find(params[:id])

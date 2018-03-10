@@ -7,6 +7,7 @@
     <tr>
       <th>Price</th>
       <th>Description</th>
+      <th>Image</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= trinket.price %></td>
         <td><%= trinket.description %></td>
+        <td><%= image_tag trinket.photo_path.thumb.url %></td>
         <td><%= link_to 'Show', trinket_path(trinket) %></td>
         <td><%= link_to 'Edit', edit_trinket_path(trinket) %></td>
         <td><%= link_to 'Destroy', trinket_path(trinket), method: :delete, data: { confirm: 'Are you sure?' } %></td>
