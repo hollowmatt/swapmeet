@@ -5,17 +5,13 @@
 <table>
   <thead>
     <tr>
-      <th>Price</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th colspan="2"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @trinkets.each do |trinket| %>
       <tr>
-        <td><%= trinket.price %></td>
         <td>
           <div class="flip-container card-image waves-effect waves-block waves-light" ontouchstart="this.classList.toggle('hover');">
             <div class="flipper">
@@ -26,16 +22,22 @@
                 <div class="back-logo"></div>
                 <div class="back-title">Beer</div>
                 <p>
+                  <strong>
+                    $<%=trinket.price%>
+                  </strong>
+                </p>
+                <p>
                   <%= trinket.description %> 
-                  <br/>
-                  <%= link_to 'Show', trinket_path(trinket) %>
+                </p>
+                <p>
+                  [<%= link_to 'Show', trinket_path(trinket) %> |
+                  <%= link_to 'Edit', edit_trinket_path(trinket) %> |
+                  <%= link_to 'Delete', trinket_path(trinket), method: :delete, data: { confirm: 'Are you sure?' } %> ]
                 </p>
               </div>
             </div>
           </div>
         </td>
-        <td><%= link_to 'Edit', edit_trinket_path(trinket) %></td>
-        <td><%= link_to 'Destroy', trinket_path(trinket), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
