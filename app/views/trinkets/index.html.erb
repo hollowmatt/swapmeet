@@ -8,7 +8,7 @@
       <th>Price</th>
       <th>Description</th>
       <th>Image</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -16,9 +16,24 @@
     <% @trinkets.each do |trinket| %>
       <tr>
         <td><%= trinket.price %></td>
-        <td><%= trinket.description %></td>
-        <td><%= image_tag trinket.photo_path.thumb.url %></td>
-        <td><%= link_to 'Show', trinket_path(trinket) %></td>
+        <td>
+          <div class="flip-container card-image waves-effect waves-block waves-light" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+              <div class="front">
+                <%= image_tag trinket.photo_path.midsize.url, width: 320, height: 427 %>
+              </div>
+              <div class="back" style="background:#f8f8f8;">
+                <div class="back-logo"></div>
+                <div class="back-title">Beer</div>
+                <p>
+                  <%= trinket.description %> 
+                  <br/>
+                  <%= link_to 'Show', trinket_path(trinket) %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </td>
         <td><%= link_to 'Edit', edit_trinket_path(trinket) %></td>
         <td><%= link_to 'Destroy', trinket_path(trinket), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
