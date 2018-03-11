@@ -1,6 +1,10 @@
 class TrinketsController < ApplicationController
+	before_action :set_trinket, only: [:show, :edit, :update, :destroy]
 	def index
 		@trinkets = Trinket.all
+	end
+
+	def show
 	end
 
 	def new
@@ -8,7 +12,6 @@ class TrinketsController < ApplicationController
 	end
 
 	def edit
-		@trinket = Trinket.find(params[:id])
 	end
 
 	def create
@@ -26,8 +29,7 @@ class TrinketsController < ApplicationController
 	end
 
 	def update
-		@trinket = Trinket.find(params[:id])
-    respond_to do |format|
+		respond_to do |format|
       if @trinket.update(trinket_params)
         format.html { redirect_to @trinket, notice: 'trinket was successfully updated.' }
         format.json { render :show, status: :ok, location: @trinket }
@@ -38,14 +40,21 @@ class TrinketsController < ApplicationController
     end
   end
 
-	def show
-		@trinket = Trinket.find(params[:id])
-	end
+
 
 	def destroy
+		@trinket.destroy
+		respond_to do |format| 
+			format.html { redirect_to trinkets_url, notice: 'Trinket was successfully deleted'}
+			format.json { head :no_content }
+		end
 	end
 
 	private
+		def set_trinket
+			@trinket = Trinket.find(params[:id])
+		end
+
 		def trinket_params
 			params.require(:trinket).permit(:title, :description, :photo_path, :price)
 		end
