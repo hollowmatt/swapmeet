@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'react-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'config'
 # gem 'bootstrap-sass'
 
 group :development, :test do
