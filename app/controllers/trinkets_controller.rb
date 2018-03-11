@@ -1,5 +1,6 @@
 class TrinketsController < ApplicationController
 	before_action :set_trinket, only: [:show, :edit, :update, :destroy]
+	
 	def index
 		@trinkets = Trinket.all
 	end
