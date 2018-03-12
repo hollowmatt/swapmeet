@@ -2,25 +2,19 @@
 
 <h1>Trinkets</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @trinkets.each do |trinket| %>
-      <tr>
-        <td>
-          <div class="flip-container card-image waves-effect waves-block waves-light" ontouchstart="this.classList.toggle('hover');">
-            <div class="flipper">
-              <div class="front">
-                <%= image_tag trinket.photo_path.midsize.url, width: 320, height: 427 %>
-              </div>
-              <div class="back" style="background:#f8f8f8;">
-                <div class="back-logo"></div>
-                <div class="back-title">Beer</div>
+<div class="wrap">
+  <% @trinkets.each do |trinket| %>  
+  <!-- Define all of the tiles: -->
+  <div class="box">
+    <div class="boxInner">
+      <div class="flip-container card-image waves-effect waves-block waves-light" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+          <div class="front">
+            <%= image_tag trinket.photo_path.midsize.url, width: 320, height: 427 %>
+          </div>
+          <div class="back" style="background:#f8f8f8;">
+            <div class="back-logo"></div>
+              <div class="back-title">Beer</div>
                 <p>
                   <strong>
                     $<%=trinket.price%>
@@ -37,12 +31,11 @@
               </div>
             </div>
           </div>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+        </div>
+      <div class="titleBox"><%=trinket.title %></div>
+    </div>
+  <% end %>
+  </div>
+</div>
 
 [<%= link_to 'New trinket', new_trinket_path %>]
