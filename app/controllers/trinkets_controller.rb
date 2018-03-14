@@ -1,6 +1,9 @@
 class TrinketsController < ApplicationController
 	before_action :set_trinket, only: [:show, :edit, :update, :destroy]
 	
+	# If at some point I want to setup a different layout
+	# layout "trinket", only [:index]
+
 	def index
 		@trinkets = Trinket.all
 	end
