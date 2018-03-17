@@ -7,15 +7,15 @@ describe Trinket do
 	end
 	
 	it "is invalid without a description" do
-		FactoryBot.build(:trinket, description: nil).should_not be_valid
+		expect(FactoryBot.build(:trinket, description: nil)).to_not be_valid
 	end
 
 	it "is invalid without a photo_path" do
-		FactoryBot.build(:trinket, photo_path: nil).should_not be_valid
+		expect(FactoryBot.build(:trinket, photo_path: nil)).to_not be_valid
 	end
 
 	it "is invalid without a price" do
-		FactoryBot.build(:trinket, price: nil).should_not be_valid
+		expect(FactoryBot.build(:trinket, price: nil)).to_not be_valid
 	end
 end
 	
