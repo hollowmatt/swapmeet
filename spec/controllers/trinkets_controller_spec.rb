@@ -9,7 +9,11 @@ describe TrinketsController do
 		end
 	end
 	describe 'GET #show' do
-		it "renders the show view"
+		it "renders the show view" do
+			@trinket = create(:trinket)
+			get :show, params: {id: @trinket.id}
+			expect(response).to be_success
+		end
 	end
 
 	describe 'PATCH #update'
