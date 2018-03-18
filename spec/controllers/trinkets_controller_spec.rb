@@ -43,6 +43,12 @@ describe TrinketsController do
 	describe 'DESTROY #delete' do
 		before do
 			@trinket = create(:trinket)
+			@trinkets = Trinket.all
+		end
+		it "deletes a trinket" do
+			expect {
+				delete :destroy, params: { id: @trinket.id }
+			}.to change(@trinkets, :count).by (-1)
 		end
 	end
 
